@@ -1,0 +1,8 @@
+package br.com.cpqd.platiot.user.utils;
+
+public interface UserConstants {
+    String ERROR_INVALID_FIELD_LOGIN = "ERROR_INVALID_FIELD_LOGIN";
+    String ERROR_INVALID_FIELD_PASSWORD = "ERROR_INVALID_FIELD_PASSWORD";
+    String ERROR_INVALID_FIELD_NAME = "ERROR_INVALID_FIELD_NAME";
+    String ERROR_INVALID_LOGIN = "ERROR_INVALID_LOGIN";
+}

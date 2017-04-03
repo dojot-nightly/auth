@@ -1,0 +1,22 @@
+# Directories
+bin/
+target/
+deploy/
+.settings/
+
+# Files
+*.bak
+*.class
+*.jar
+*.war
+*.ear
+*.rar
+*.ori
+*.orig
+*.factorypath
+*.apt_generated
+*.DS_Store
+*.project
+*.classpath
+*.tern-project
+*.faces-config.xml.jsfdia
