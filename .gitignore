@@ -1,1 +1,5 @@
 *.pyc
+*.bin
+auth/logs
+.eggs
+auth.egg-info
