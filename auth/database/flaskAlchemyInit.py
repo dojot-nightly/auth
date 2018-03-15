@@ -23,6 +23,7 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
 
 # create a logger for our application
+print("dbconf: {}".format(json.dumps(dbconf.dbName)))
 if dbconf.logMode == 'STDOUT':
     streamLogger = logging.StreamHandler()
     streamLogger.setFormatter(formatter)
@@ -40,13 +41,9 @@ else:
 app.logger.setLevel(logging.DEBUG)
 
 # Select database driver
-if dbconf.dbName == 'postgres':
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+pypostgresql://' + \
-                dbconf.dbUser + ':' + dbconf.dbPdw + '@' + dbconf.dbHost
-
-else:
-    app.logger.error("Currently, there is no suport for database " + dbconf.dbName)
-    exit(-1)
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgres+psycopg2://{}:{}@{}/{}".format(
+    dbconf.dbUser, dbconf.dbPdw, dbconf.dbHost, dbconf.dbName
+)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)

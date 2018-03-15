@@ -9,10 +9,11 @@ LOGGER.addHandler(logging.StreamHandler())
 LOGGER.setLevel(logging.INFO)
 
 # database related configuration
-dbName = os.environ.get("AUTH_DB_NAME", "postgres")
+dbName = os.environ.get("AUTH_DB_NAME", "dojot_auth")
 dbUser = os.environ.get("AUTH_DB_USER", "auth")
 dbPdw = os.environ.get("AUTH_DB_PWD", "")
 dbHost = os.environ.get("AUTH_DB_HOST", "postgres")
+createDatabase = os.environ.get('AUTH_DB_CREATE', True)
 
 
 # cache related configuration
@@ -83,7 +84,8 @@ if passwdMinLen < 6:
     passwdMinLen = 6
 
 # Where to publish tenancy information to
-kafka_host = 'kafka:9092'
+kafka_host = os.environ.get("KAFKA_HOST",
+                            'kafka:9092')
 # Global subject to use when publishing tenancy lifecycle events
 kafka_subject = 'dojot.tenancy'
 
