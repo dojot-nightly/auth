@@ -5,7 +5,6 @@ Please send all pull requests and issues to https://github.com/dojot/auth
 
 # dojot Authentication service
 
-
 This service handles user authentication for the platform. Namely this is used to
 maintain the set of known users, and their associated roles. Should a user need
 to interact with the platform, this service is responsible for generating the JWT
@@ -31,17 +30,20 @@ repository's  root:
 docker build -t <tag> -f docker/Dockerfile .
 ```
 
-## configuration
-# database related configuration
+## Configuration
+
+### Database related configuration
 
 Some auth configuration is made using environment variables.
 On a Linux system one can set a environment variable with the command
+
 ```shell
   export VAR_NAME=varvalue
 ```
 
 on a docker-compose schema, one can set environment variables for a container
 Append the following configuration
+
 ```shell
   environment:
       VAR_NAME: "varvalue"
@@ -50,13 +52,13 @@ Append the following configuration
 The default value is used if the configuration was not provided
 The following variables can be set
 
-  * AUTH_DB_NAME
-	    	* database type. Current only postgres is supported
-	    	* default: postgres
+* AUTH_DB_NAME
+  * database type. Current only postgres is supported
+  * default: postgres
 
   * AUTH_DB_USER
-	    	* The username used to access the database
-	    	* default: auth
+    * The username used to access the database
+    * default: auth
 
   * AUTH_DB_PWD
         * The password used to access the database
@@ -108,12 +110,14 @@ If you are running without docker, You will need to create and populate
 the database tables before the first run.
 
 python3 shell:
+
 ```shell
 >>> from webRouter import db
 >>> db.create_all()
 ```
 
 Create the initial users, groups and permissions
+
 ```shell
   python3 initialConf.py
 ```
